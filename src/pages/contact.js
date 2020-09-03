@@ -4,7 +4,13 @@ const ContactPage = () => {
   return (
     <div>
       <h1>Contact page</h1>
-      <p>In progress.</p>
+      <p>
+        Here is my{" "}
+        <a href="https://github.com/saymow" target="_blank">
+          Github profile
+        </a>
+        , check it out!
+      </p>
     </div>
   );
 };
