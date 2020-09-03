@@ -1,8 +1,12 @@
 import React from "react";
 
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const ContactPage = () => {
   return (
     <div>
+      <Header />
       <h1>Contact page</h1>
       <p>
         Here is my{" "}
@@ -11,6 +15,7 @@ const ContactPage = () => {
         </a>
         , check it out!
       </p>
+      <Footer />
     </div>
   );
 };

@@ -1,14 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
 
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const IndexPage = () => {
   return (
     <div>
+      <Header />
       <h1>Hello</h1>
       <h2>I'm Gustavo, a full-stack developer living in Betim, Mg.</h2>
       <p>
         Neeed a developer? <Link to="/about">Contact me</Link>
       </p>
+      <Footer />
     </div>
   );
 };
