@@ -5,8 +5,7 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  siteMetaData: {
+  siteMetadata: {
     title: "Full-Stack Bootcamp",
     author: "Gustavo Alves",
   },
