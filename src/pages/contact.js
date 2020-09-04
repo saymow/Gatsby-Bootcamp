@@ -8,7 +8,7 @@ const ContactPage = () => {
       <h1>Contact page</h1>
       <p>
         Here is my{" "}
-        <a href="https://github.com/saymow" target="_blank">
+        <a href="https://github.com/saymow" target="_blank" rel="noreferrer">
           Github profile
         </a>
         , check it out!
