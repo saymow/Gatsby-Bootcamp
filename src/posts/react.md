@@ -1,5 +1,5 @@
 ---
-title: "React Bootcamp",
+title: "React Bootcamp"
 date: "2019-04-06"
 ---
 
