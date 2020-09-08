@@ -14,4 +14,39 @@ module.exports = {
       });
     }
   },
+
+  createPages: async ({ graphql, actions }) => {
+    const { createPage } = actions;
+    const blogTemplatePath = path.resolve(
+      __dirname,
+      "src",
+      "templates",
+      "Blog",
+      "index.jsx"
+    );
+
+    const response = await graphql(`
+      query {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `);
+
+    response.data.allMarkdownRemark.edges.map(edge => {
+      createPage({
+        component: blogTemplatePath,
+        path: `/blog/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    });
+  },
 };
