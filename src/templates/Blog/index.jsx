@@ -16,15 +16,13 @@ export const query = graphql`
 `;
 
 const Blog = ({ data }) => {
-  console.log(data);
-
   return (
     <Layout>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
       <p>{data.markdownRemark.frontmatter.date}</p>
       <div
         dangerouslySetInnerHTML={{
-          __html: data.markdownRemark.html,
+          __html: data.markdownRemark.html, 
         }}
       ></div>
     </Layout>

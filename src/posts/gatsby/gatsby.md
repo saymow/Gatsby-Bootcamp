@@ -5,6 +5,8 @@ date: "2019-04-04"
 
 Gatsby bootcamp
 
+![raskolnikov](./raskolnikov.jpg)
+
 ## Topics Covered
 
 1. Gatsby
