@@ -1,19 +1,20 @@
 const path = require("path");
 
 module.exports = {
-  onCreateNode: ({ node, actions }) => {
-    const { createNodeField } = actions;
+  // It's used only to created slugs for markdown posts
+  // onCreateNode: ({ node, actions }) => {
+  //   const { createNodeField } = actions;
 
-    if (node.internal.type === "MarkdownRemark") {
-      const slug = path.basename(node.fileAbsolutePath, ".md");
+  //   if (node.internal.type === "MarkdownRemark") {
+  //     const slug = path.basename(node.fileAbsolutePath, ".md");
 
-      createNodeField({
-        node,
-        name: "slug",
-        value: slug,
-      });
-    }
-  },
+  //     createNodeField({
+  //       node,
+  //       name: "slug",
+  //       value: slug,
+  //     });
+  //   }
+  // },
 
   createPages: async ({ graphql, actions }) => {
     const { createPage } = actions;
@@ -25,26 +26,39 @@ module.exports = {
       "index.jsx"
     );
 
+    //This was used for fetching markdown posts, that we're no longer using.
+    // const response = await graphql(`
+    //   query {
+    //     allMarkdownRemark {
+    //       edges {
+    //         node {
+    //           fields {
+    //             slug
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // `);
+
     const response = await graphql(`
       query {
-        allMarkdownRemark {
+        allContentfulBlogPost {
           edges {
             node {
-              fields {
-                slug
-              }
+              slug
             }
           }
         }
       }
     `);
 
-    response.data.allMarkdownRemark.edges.map(edge => {
+    response.data.allContentfulBlogPost.edges.map(edge => {
       createPage({
         component: blogTemplatePath,
-        path: `/blog/${edge.node.fields.slug}`,
+        path: `/blog/${edge.node.slug}`,
         context: {
-          slug: edge.node.fields.slug,
+          slug: edge.node.slug,
         },
       });
     });
