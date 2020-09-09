@@ -4,17 +4,16 @@ import { Link } from "gatsby";
 import Layout from "../../components/Layout";
 import Head from "../../components/Head";
 
-const AboutPage = () => {
+const NotFound = () => {
   return (
     <Layout>
-      <Head title="About" />
-      <h1>About me:</h1>
-      <p>Something about me page.</p>
+      <Head title="404" />
+      <h1>Page not found.</h1>
       <p>
-        Did you like it? <Link to="/contact">contact me</Link>
+        <Link to="/">Head home</Link>
       </p>
     </Layout>
   );
 };
 
-export default AboutPage;
+export default NotFound;
